@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Tables</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+   <style type="text/css">
+    .bg-gray-900 {
+  background-color: #313131 !important;
+}
+      
+    .my-custom-scrollbar {
+      position: relative;
+      min-height: 600px !important;
+      max-height: 1920px;
+      overflow: auto;}
+
+
+  .table-wrapper-scroll-y {
+      display: block;}
+
+    #profile-container {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
+
+#profile-container img {
+    width: 70px;
+    height: 70px;
+}
+.search-form {
+    border-radius: 30px 0px 0px 30px;
+    /*border-radius:Top-left, Top-right, Bottom-right, Bottom-left;*/
+}
+/*to cange only one form and not all give unique class name like  class="search-form" */
+ .search-btn {
+    border-radius: 0px 30px 30px 0px;
+    cursor:pointer;
+}
+.table th{
+  border-color:#F0F0F0;
+  font-size: 10px;
+  color: black;
+  font-weight:normal; 
+}
+.table tbody{
+  background-color: white;
+  border-color:  #F0F0F0;
+  width: 100px;
+}
+.page-item.active .page-link {
+    background-color: #ecc94b!important;
+      border-color: #f7fafc;
+      border: 1px solid transparent;
+
+   
+}
+.dataTables_paginate {
+    margin-top: 15px;
+    position: absolute;
+    text-align: right;
+    left: 0%;
+    color: black !important;
+
+}
+.page-item.active .page-link {
+    background-color: #ecc94b!important;
+      border-color: #f7fafc;
+      border: 1px solid transparent; 
+}
+.page-link {
+    color: black !important;
+    border-color: #f7fafc;
+    padding: 0.5em 1em; 
+}
+.page-item.hover{
+  border:none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.1em 0.1em;
+  margin-left: 0px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  color: #333333 !important;
+  border: 5px solid transparent;
+}
+
+
+.form-rounded {
+border-radius: 1rem;
+}
+.btn:focus {
+  outline: none;
+}
+.text:focus {
+  outline: none;
+}
+
+.pagination>li>a, .pagination>li>span { 
+  border-radius: 70% !important;
+  margin: 5 5px;
+  width: 33px;
+  height:33px;
+  text-align: center;
+  font-size: 13px;
+  outline:none ! important; 
+  box-shadow: none; 
+  padding-right: -5px;
+  padding-bottom: 1px;
+  margin-top: 30px;
+ 
+
+
+}
+@media only screen and (min-width: 1300px){
+  .mybutton{
+    margin-left: 730px ! important;
+    width: 100%;
+    height: 100%;
+
+  }
+  
+
+}
+
+@media only screen and (min-width: 1000px){
+  .mybutton{
+    margin-left: 600px;
+    width: 100%;
+    height: 100%;
+
+  }
+  .table{
+    width: auto;
+    min-width: 600px !important;
+    min-height: 390px;
+  
+  }
+  .mycard1{
+    min-width: 700px !important;
+  }
+  .mycard{
+    
+    margin-left: -80px !important;
+    max-height: 350px;
+  }
+ .mybt1{
+    width:100% !important;
+    min-width: 184px !important;
+    max-width: 184px !important;
+    height:32px;
+    font-size: 9px !important;
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+  .mybt2{
+    width:100% !important;
+    min-width: 254px !important;
+    max-width: 254px !important;
+    height:32px;
+    font-size: 9px !important;
+    margin-left: 5px !important;
+    margin-top: 3px;
+  }
+  .mybt1>ul>li{
+    font-size: 8px;
+  }
+  .myser{
+        width: 100%;
+        min-width: 270px !important;
+        
+        height: 33px !important;
+        margin-left:10px;
+        margin-right: 70px;
+        margin-top: -9px !important;
+        font-size: 9px !important;
+    }
+    
+  .c3{
+    margin-left: 168px !important;
+    margin-top:-42px !important;
+  }
+  .c4{
+    margin-left: 230px !important;
+    margin-top:-42px !important;
+  }
+  
+}
+@media only screen and (min-width: 2000px){
+  .mybutton{
+    margin-left: 1850px ! important;
+    width: 100%;
+    height: 100%;
+  }
+  .table{
+    width:1200px;
+    min-height:450px;
+    margin-left: 300px;
+    
+  }
+  .table td, .table th{
+    font-size: 12px;
+  }
+  .mycard{
+    max-width:400px !important;
+    max-height: 410px;
+    margin-left: -100px !important;
+    margin-right: 400px !important;
+    margin-top: 1px;
+  }
+  .mycard1{
+    margin-left:300px !important;
+  }
+  .myser{
+        width: 100%;
+        margin-left: -20px;
+        min-width: 380px !important;
+        height: 40px !important;
+        margin-right: 350px;
+        margin-top: -15px !important;
+        font-size: 13px !important;
+        margin-left: 250px;
+    }
+    .mybt1{
+    width:100% !important;
+    min-width: 220px !important;
+    max-width: 220px;
+    height:38px;
+    margin-left: 240px;
+    font-size: 11px !important;
+  }
+  .mybt1>li{
+    font-size: 10px;
+  }
+  .my-custom-scrollbar {
+      position: relative;
+      min-height: 1800px !important;
+      max-height: 1920px;
+      overflow: auto;}
+  
+  .c3{
+    margin-left: 436px !important;
+    margin-top:-46px !important;
+  }
+   }
+  .c4{
+    margin-left: 230px;
+    margin-top:-42px !important;
+  }
+  
+}
+
+ a.model:hover {
+  background-color: #696969;
+}
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #bec2c7 !important; 
+    font-size: 8px;
+}
+.caret {
+    float: right;
+    margin-top: 9px;
+    display: block;
+  }
+
+.dropdown-menu {
+  width: 164px;
+  padding: 0;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.dropdown button:hover, .dropdown button:focus {
+  border: none;
+  outline: 0;
+}
+
+.dropdown.open button#dLabel {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+ 
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  border: solid 1px #666;
+   border-bottom: none;
+}
+
+.dropdown.open ul {
+   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  border: solid 1px #666;
+  border-top: none;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.dropdown-menu li {
+ 
+     line-height: 1.5;
+  letter-spacing: 0.7px;
+  color: #666;
+    font-size: 14px;
+  cursor: pointer;
+  padding: 7.5px 15px;
+  border-top: solid 1px #f3f3f3;
+  
+ 
+ 
+}
+
+.dropdown-menu li:hover {
+  background-color: white;
+}
+.myli li{
+  font-size: 10px;
+}
+.mynav{
+  position:fixed;
+  z-index: 1;
+  overflow-x: hidden;
+}
+.mycont{
+  margin-left: 200px !important;
+}
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #bec2c7 !important; 
+    font-size: 10px;
+} 
+</style>
+
+</head>
+
+<body id="page-top" style="width: 90% margin:auto;">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion mynav" id="accordionSidebar" style="color: #313131; max-width: 300px; ">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+         <div class="sidebar-brand-text mx-3" style=" margin-left: -5px; width: 190px;height: 16px;font-family: HiraginoSans-W9;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.62;letter-spacing: normal;text-align: left;color: #ffffff;">Company Tour</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <div id="divider" style="background-color:#ffffff; height: 1px; width:100%; margin-top: -3px;"></div>
+       <span style="margin-left: 20px; margin-top: 20px;font-weight: bold;font-size: 16px; color: white;">Menu</span>
+
+      <!-- Nav Item - Dashboard -->
+     <li class="nav-item" style="margin-bottom: -10px;">
+        <a class="nav-link newcolor model" href="dashboard.html" onmouseover= "colors(this)" onmouseout="colorss(this)">
+           <i class="material-icons" style="width:15px;margin-top: -3px; margin-right: 0px !important; color: white;"onmouseover= "colors(this)" onmouseout="colorss(this)">dashboard</i>
+          <span style="font-size: 10px; ">ダッシュボード</span></a>
+      </li>
+
+      <li class="nav-item" style="margin-bottom: -10px;"> 
+        <a class="nav-link model"  href="admin_share.html" onmouseover= "colors(this)" onmouseout="colorss(this)">
+          
+          <i data-feather="edit-2" style="width:15px;margin-top: -3px;margin-right: 0px !important; color: white;"onmouseover= "colors(this)" onmouseout="colorss(this)"></i>
+          <span style="font-size: 10px; ">ツアー作成</span></a>
+      </li>
+
+     <li class="nav-item " style="margin-bottom: -10px;">
+        <a class="nav-link model" href="admin_ツアー管理.html" onmouseover= "colors(this)" onmouseout="colorss(this)">
+         <i class="material-icons" style="width:20px;margin-top: -3px; margin-right: 0px !important; color: white;"onmouseover= "colors(this)" onmouseout="colorss(this)">view_list</i>
+          <span style="font-size: 10px; ">ツアー管理</span></a>
+      </li>
+
+      <li class="nav-item " style="margin-bottom: -10px;">
+        <a class="nav-link model" href="admin_お知らせ.html" onmouseover= "colors(this)" onmouseout="colorss(this)">
+           <i data-feather="bell" style="width:15px;margin-top: -3px; margin-right: 0px !important; color: white;"onmouseover= "colors(this)" onmouseout="colorss(this)"></i>
+          <span style="font-size: 10px; ">お知らせ</span></a>
+      </li>
+
+      <li class="nav-item" style="margin-bottom: -10px;" onmouseover= "colors(this)" onmouseout="colorss(this)">
+        <a class="nav-link model" href="admin_お問い合わせ.html" onmouseover= "colors(this)" onmouseout="colorss(this)">
+          <i style="font-size: 15px; color: white;" class="far fa-comment" onmouseover= "colors(this)" onmouseout="colorss(this)"></i>
+          <span style="font-size: 10px; ">問い合わせる</span></a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed model" href="admin_会社情報.html" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" onmouseover= "colors(this)" onmouseout="colorss(this)">
+          <i  style="font-size: 15px; color: white;" class="fas fa-fw fa-cog" onmouseover= "colors(this)" onmouseout="colorss(this)"></i>
+          <span style="font-size: 10px; color: white;">設定</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+         <div class="bg-white py-2 collapse-inner rounded" style="font-size: 10px;">
+            <h6 class="collapse-header" style="color: black;" >設定</h6>
+             <a class="dropdown-item model" href="admin_会社情報.html"> 会社情報</a>
+                <a class="dropdown-item model" href="admin_管理.html">メンバー管理</a>
+                <a class="dropdown-item model" href="plan.html">プラン管理</a>
+                <a class="dropdown-item model" href="請求書情報.html">請求書情報</a>
+                <a class="dropdown-item model" href="help.html">ヘルプ</a>
+                <a class="dropdown-item model" href="admin_login.html" data-toggle="modal" data-target="#logoutModal">ログアウト</a>
+          </div>
+        </div>
+      </li>
+      
+
+     
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div class="mycont" id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        
+
+
+          <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group" style="margin-bottom: 0px; color: #718096;; font-weight: bold; margin-left: -15px;">
+              <div class="sidebar-brand-text mx-3" style="font-size: 12px;height: 18px; font-family: HiraginoSans-W9; width:93px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.72;letter-spacing: normal;text-align: left;color: #707070; margin-top: 23px;">MASTER</div>
+            </div>
+             <a href="activieslog.html"><button type="button" class="btn btn-white btn-round-lg btn-lg mybutton" style="border-radius: 22.5px; height: 35px; width: 150px; font-size: 9px;  margin-top: -40px; background-color: #0079ea; color: 
+              white;  outline:none ! important; box-shadow: none; "><i data-feather="activity" style="width:20px; margin-top: -3px;"></i> &nbsp;アクティビティログ</button></a>
+          </form> 
+         
+
+          <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 
+                <img class="img-profile rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg">
+                <input type="text" class="form-control" placeholder="MOROCCA ALVIN"   disabled="disabled" style="width:180px; height: auto; background-color:white;  border: transparent; font-family: HiraginoSans-W6; font-size: 12px; color: black; margin-top: -7px;" />  <i class="fas fa-caret-down" style="margin-left: -15px; color: #313131;"></i>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" style="height:500px; width: 330px;">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                  <div class="input-group" style="margin-bottom: 0px; color: black; margin-left: 10px;">
+                    <div class="sidebar-brand-text mx-3" style="font-weight: bold; font-size: 14px; font-family: HiraginoSans-W6; margin-top: 20px;"> 
+                      <span>プロフィールの詳細</span></div>                    
+                  </div>
+
+                </form>
+
+
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                   <div class="container my-4">
+                    <div class="row text-center" s >      
+                       <div class="col-md-6 mb-4" style="margin-left: -10px; ">
+
+                      <div id="profile-container">
+                        <div id="profile-container"><i class="fas fa-camera" style="position: absolute; margin-left: 21px; margin-top: 35px; max-width: 100px;max-height: 100px; color:#ffffff; min-width: 35px; min-height: 30px; cursor: pointer;"></i>
+                            <image id="profileImage" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" />
+                            <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" 
+                            capture  >
+                          </div>
+                       </div>  
+                   </div>
+                     <input type="text" class="form-control" style="width: 156px; height: 18px; background-color:white;  background: transparent; border:none; margin-left: -60px; margin-top: 27px; font-size: 12px; outline:none ! important; box-shadow: none; color: black;" disabled="disabled" placeholder="USER NAME " />
+
+                </form>
+                   
+               <form>
+                  <div style="margin-top: 0px; margin-bottom: 5px;">
+                    <span style="margin-left: -170px; margin-bottom: 20px; font-size: 10px;">アカウント名を変更</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" style="width: 260px; height: 33px; background-color:white;outline:none ! important; box-shadow: none;" />
+                     </div>
+               </form>
+             <form>
+                      <div style="margin-top: 17px; margin-bottom: 5px;">
+                    <span style="margin-left:-150px; margin-bottom: 20px; margin-top: 30px; font-size: 10px;">新しいパスワードを設定</span>
+                  </div>
+                    <div class="form-group" style="margin-bottom: 17px; margin-top: 0px;">
+                     
+                      
+
+                        <input type="password" class="form-control" id="pass1" aria-describedby="emailHelp" placeholder="**********" style="width: 260px; height: 35px; font-size: 11px;outline:none ! important; box-shadow: none;">
+                        <span  class="fa fa-fw fa-eye field-icon toggle-password" style="margin-left: -20px;  margin-top: -25px;  position: relative;  z-index: 2;
+                         margin-top: -3px; "onmouseover="mouseoverPass();" onmouseout="mouseoutPass();" ></span>
+                          
+                   </div>
+
+
+                    <div>
+                    <span style="margin-left:-145px; margin-bottom: 20px; font-size: 10px;">もう一度パスワード入する</span>
+                  </div>
+                   <div class="form-group"  style="margin-bottom: 30px; margin-top: 5px;">
+                       
+                      
+                         <input type="password" class="form-control" id="pass2" placeholder="**********" style="width: 260px; height: 35px; font-size: 11px;outline:none ! important; box-shadow: none; ">
+                         <span  class="fa fa-fw fa-eye field-icon toggle-password"  id="pass2" style="margin-left: -20px;  margin-top: -25px;  position: relative;  z-index: 2;
+                         margin-top: -3px;" onmouseover="mouseoverPass1();" onmouseout="mouseoutPass1();"></span>
+                   </div>
+  
+                   <button type="submit" class="btn btn-primary"  style="margin-left: -160px; max-height: 30px; min-width:100px; font-size: 10px;">変化する</button>
+                 </form>
+
+                
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+      
+
+       <div class="card" style="height: 150px; backface-visibility: visible; margin-top: -25px; background-color: #F0F0F0;
+       ;border-width: 0px; flex-grow: 1; ">
+
+        <label style="padding-left: 40px; padding-top: 20px; width: 150px;height: 30px;font-family: HiraginoSans-W7;font-size: 18px;font-weight: normal;font-stretch: normal; font-style: normal;line-height: 1.7;letter-spacing: 1.5px; text-align: left;color: #313131;">メンバー</label>
+        
+          
+          <div class="container-fluid" style="padding-top: 40px;">
+
+         <nav>
+          <ul>
+
+            <form class="form-inline mr-auto w-100 navbar-search"  >
+              <div class="input-group" style="margin-left:-30px;  margin-bottom: -20px; min-width: 50px; " >
+           
+              <input type="text" class="form-control form-rounded myser" placeholder="アカウント名で検索" style=" margin-top: -20px; background-color: #ffffff;border-radius: 30px;border: solid 1px #dadde2; outline:none ! important; box-shadow: none; font-size: 10px; margin-right: 80px; position: relative;z-index:1; ">
+
+             </div>
+              <div class="input-group-append" style="margin-top: 14px; margin-left: -120px; margin-right: 120px;">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search" style="color: #696969;"></i></button>
+                   </div>
+         
+
+            
+
+           <div class="dropdown mybt1" style="margin-right: 10px;">
+             <button id="dLabel" class=" btn btn-white dropdown-select mybt1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; border-radius: 5px; border-color:#dadde2;  background-color: #ffffff;  border: solid 1px #dadde2;   outline:none ! important; box-shadow: none;text-align: left; color: black;"> アカウント種別（すべて） <span class="caret"></span></button> <div class="c3" style="margin-top: -24px !important; width: 20px;"><i  class="fas fa-sort-down" style="width:30px; margin-left:5px; color: black; font-size: 14px;"></i></div><ul class="mymenu">  
+              <ul class="dropdown-menu myli" aria-labelledby="dLabel" >
+               <li >アカウント種別（すべて）</li>
+               <li>管理者</li>
+               <li>アカウント種別名が入ります</li>
+               <li>アカウント種別名が入ります</li>
+               
+              </ul></ul>
+            </div>
+
+          
+
+            </div>
+
+           </form>
+         </ul>     
+      </nav>            
+     </div></div>
+
+    
+     <div class="container-fluid"  style="background-color: #F0F0F0; margin: 0 auto; ">    
+      <div class="card-deck"   style="padding-top: 0px;background-color:#F0F0F0;">
+      <div class="card mycard1" style="width: auto;border:transparent; border-color: transparent; background-color: #F0F0F0;">
+        <div class="card-block" >
+          <div class="container-fluid" style=";
+             margin-bottom: -26px;  margin-left:-3vw; ">          
+             <div class="card-body" style="background-color:#F0F0F0;">
+            <div class="table-responsive my-custom-scrollbar">
+              <table class="table borderless" width="100%" cellspacing="0" style="text-align: center; height: auto;  margin-top: -10px; margin-left: 10px; " >
+
+                <thead> 
+                    <tr>
+                       <th>No</th>
+                      <th>アカウント</th>
+                      <th>メールアドレス</th>
+                      <th>アカウント</th>
+                      
+                      
+                    </tr>
+                  </thead>
+
+                  <tbody style="font-size: 10px;">
+                    <tr >
+                     <td>1</td>
+                     <td>Lorem ipsum dolor</td>
+                     <td>Lorem ipsum dolor</td>
+                     <td>Lorem ipsum dolor</td>
+                    
+                    
+                    
+                    </tr>
+                    <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                   
+                   
+                   
+                    </tr>
+                     <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    
+                    
+                   
+                    </tr> 
+                     <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                   
+                   
+                   
+                    </tr> <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    
+                   
+                   
+                    </tr> <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    
+                   
+                   
+                    </tr> <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    
+                   
+                   
+                    </tr> <tr >
+                    <td>2</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    <td>Lorem ipsum dolor</td>
+                    
+                   
+                   
+                    </tr>
+                  </tbody>
+               </table>
+               
+           </div>
+        </div>
+      </div>
+
+
+
+          </div>
+      </div>
+
+
+
+  <div class="card mycard" style="top: 50px;">
+     <label for="exampleInputEmail1" style="padding-top: 40px; padding-left: 53px; font-size: 16px; color: #313131; margin-left: 10px;">新しいメンバー </label>
+   
+    <div class="card-block" style="width: 267px; padding-top: 15px; padding-left: -75px;">
+      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="form-group" style= "padding-bottom: 50px; margin-left: 40px;">
+       <label for="exampleInputEmail1" style="margin-left:10px;padding-right: 10px; padding-bottom: 10px; font-size:10px; color: #313131;"></i> メールアドレス</label>
+       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Enter email" style="width: 255px; padding-left: 20px; margin-left: 10px;margin-right: -20%; font-size: 12px; height: 35px;box-shadow: none;">
+    
+      </div>
+
+      <div class="form-group" style=" width:  300px; margin-left: 40px;">
+         <label for="exampleInputEmail1" style="padding-right: 10px; padding-bottom: 0px; margin-top: -35px; font-size: 10px; color: #313131; margin-left: 10px;"></i> アカウント</label>
+             <div class="dropdown mybt2" style="margin-right: 10px;">
+             <button id="dLabel" class=" btn btn-white dropdown-select1 mybt2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; border-radius: 5px; border-color:#dadde2;  background-color: #ffffff;  border: solid 1px #dadde2;   outline:none ! important; box-shadow: none;text-align: left; color: black;"> アカウント種別（すべて） <span class="caret"></span></button> <div class="c4" style="margin-top: -24px !important; width: 20px;"><i  class="fas fa-sort-down" style="width:30px; margin-left:5px; color: black; font-size: 14px; min-width:270px !important;"></i></div><ul class="mymenu1">  
+              <ul class="dropdown-menu myli" aria-labelledby="dLabel" >
+               <li >アカウント種別（すべて）</li>
+               <li>管理者</li>
+               <li>アカウント種別名が入ります</li>
+               <li>アカウント種別名が入ります</li>
+               
+              </ul></ul>
+            </div>
+    
+  </div>
+<button type="button" class="btn btn-white" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin:auto; color: white; background-color: #0079ea;
+  margin-top: 25px; font-size: 10px; width: 140px; height: 37px; margin-left: 50px;">
+  招待リンクを送信する</button>
+
+  </form>
+</div>
+    
+  </div>
+  
+</div></div>
+        <!-- /.container-fluid -->
+
+
+      </div>
+      <!-- End of Main Content -->
+
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  
+  
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel" ><span style="font-size: 12px;">Ready to Leave?</span></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body" ><span style="font-size: 12px;">Select "Logout" below if you are ready to end your current session.</span></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal" style="font-size: 12px;">キャンセル</button>
+          <a class="btn btn-primary" href="admin_login.html" style="font-size: 12px;" >ログアウト</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+ 
+ <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
+  <script type="text/javascript">
+
+// sidebar function
+function mouseoverPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "text";
+}
+function mouseoutPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "password";
+}
+
+function mouseoverPass1(obj) {
+  var obj = document.getElementById('pass2');
+  obj.type = "text";
+}
+function mouseoutPass1(obj) {
+  var obj = document.getElementById('pass2');
+  obj.type = "password";
+}
+function colors(clr){
+  
+  clr.style.color="#ecc94b";
+
+}
+
+function colorss(clra){
+  
+  clra.style.color="white";
+
+}
+feather.replace()
+
+// mouse right key avoid function
+ document.addEventListener('keydown', function() {
+  if (event.keyCode == 123) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  } else if (event.ctrlKey && event.keyCode == 85) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  }
+}, false);
+
+if (document.addEventListener) {
+  document.addEventListener('contextmenu', function(e) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    e.preventDefault();
+  }, false);
+} else {
+  document.attachEvent('oncontextmenu', function() {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    window.event.returnValue = false;
+  });
+}
+
+// Profile pic uploader function
+$("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+
+// check box function
+
+var options = [];
+
+$( '.dropdown-menu a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = options.indexOf( val ) ) > -1 ) {
+      options.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      options.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+      
+   console.log( options );
+   return false;
+});
+
+ // select option
+
+$('.mymenu li').on('click', function() {
+  var getValue = $(this).text();
+  $('.dropdown-select').text(getValue);
+});
+$('.mymenu1 li').on('click', function() {
+  var getValue = $(this).text();
+  $('.dropdown-select1').text(getValue);
+});
+</script>
+
+</body>
+
+</html>

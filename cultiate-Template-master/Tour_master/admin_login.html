@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Tables</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+   <style type="text/css">
+    .bg-gray-900 {
+  background-color: #F0F0F0 !important;
+}
+    
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #bec2c7 !important; 
+    font-size: 9px;
+} 
+
+@media only screen and (min-width: 1000px){
+  
+  .mycard1{
+    min-width: 450px !important;
+    max-width: 400px!important;
+    margin-top: 100px!important;
+  }
+  .mycard{
+    
+   
+    max-height: 420px;
+    min-height: 460px;
+    max-width: 470px;
+    top:-110px; 
+    margin-left: 170px !important;
+  }
+ 
+}
+@media only screen and (min-width: 2000px){
+
+ 
+  .mycard{
+    max-width:480px !important;
+    max-height: 410px;
+    margin-left: 770px !important;
+    margin-right: 450px !important;
+    top: -500px !important;
+  }
+
+
+  
+}
+</style>
+
+ 
+</head>
+
+<body id="page-top" style="width: auto;">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar" style="color: #313131; max-width: 300px;">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: #F0F0F0; max-height: 68px; ">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink" style="color:#ffce00;"></i>
+        </div>
+         <div class="sidebar-brand-text mx-3" style=" margin-left: -5px; width: 190px;height: 16px;font-family: HiraginoSans-W9;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.62;letter-spacing: normal;text-align: left;color: #313131;">Company Tour</sup></div>
+
+      </a>
+
+    </ul>
+  
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" style="background-color: #F0F0F0; height: 65px;">
+        <label style="font-family: HiraginoSans-W9; color: #313131; font-size: 12px;font-weight: normal; margin-top: 27px !important;">Admin</label></div>
+          <div class="container-fluid"  style="background-color: #F0F0F0; ">    
+            <div class="card-deck"   style="padding-top: 0px;background-color:#F0F0F0;">
+             <div class="card mycard" >
+            <label for="exampleInputEmail1" style="padding-top: 60px; padding-left: 185px; font-size: 12px; color: #313131;">ログインする</label>
+               <div class="card-block" style="width: 280px; margin-top: 20px;">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                   <div class="form-group" style= "padding-bottom: 50px; margin-left: 83px;">
+                     <label for="InputEmail1" style="padding-right: 10px; padding-bottom: 10px; font-size:10px; color: #313131;"></i> メールアドレス</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" メールアドレスを入力" style="min-width: 268px; padding-left: 0px; margin-right: 0%; font-size: 12px; height: 35px;">
+    
+                   </div>
+                  <div class="form-group" style="margin-bottom: 17px; margin-top: -20px; margin-left: 83px;">
+                     
+                      
+                        <label for="InputEmail1" style="padding-right: 10px; padding-bottom: 10px; font-size:10px; color: #313131;"></i>パスワード</label>
+                        <input type="password" class="form-control" id="pass1" aria-describedby="emailHelp" placeholder=" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;パスワードを入力" style="min-width: 268px; height: 35px; font-size: 11px;outline:none ! important; box-shadow: none;"><i class="material-icons" style="margin-left:5px; margin-top: -35px !important; font-size: 16px; ">vpn_key</i>
+                        <span  class="fa fa-fw fa-eye field-icon toggle-password" style="margin-left: 248px;  margin-top: -25px;  position: relative;  z-index: 2;
+                         margin-top: -31px; font-size: 14px;"onmouseover="mouseoverPass();" onmouseout="mouseoutPass();" >
+                           
+                         </span>
+                          
+                   </div>
+                   <div class="form-check">
+                       <label class="form-check-label" for="check1" style="margin-left: 27px;">
+                       <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" ><span  style="font-family: HiraginoSans-W3; font-size: 10px; margin-left: 10px; margin-top: 4px;">ログイン情報を保存する</span> </label>
+                     </div>
+                   
+                   <a href="dashboard.html" class="btn btn-white"  aria-pressed="false" autocomplete="off" style="margin:auto;margin-top: 25px; font-size: 12px; width: 120px; height: 34px; margin-left: 145px; margin-bottom: 30px; background-color: #0079ea; color: white; box-shadow: none;">ログイン</a>
+                    <a href="" style="text-decoration: none;"> <span for="exampleInputEmail1" style="margin-top: 30px !important; padding-bottom: 30px; padding-left: 158px; font-size: 10px; color: #0079ea;">パスワードを忘れた</span>
+                    </a>
+
+                 </form>
+              </div>
+    
+            </div>
+  
+          </div>
+      </div>
+   </div>
+    <!-- End of Content Wrapper -->
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+ 
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script type="text/javascript">
+
+  function mouseoverPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "text";
+}
+function mouseoutPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "password";
+}
+
+
+function colors(clr){
+  
+  clr.style.color="#ecc94b";
+
+}
+
+function colorss(clra){
+  
+  clra.style.color="white";
+
+}
+
+ 
+
+$("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+
+/* for arrows*/
+
+jQuery( document ).ready(function() {
+    
+    var back =jQuery(".prev");
+    var next = jQuery(".next");
+    var steps = jQuery(".step");
+    
+    next.bind("click", function() { 
+      jQuery.each( steps, function( i ) {
+        if (!jQuery(steps[i]).hasClass('current') && !jQuery(steps[i]).hasClass('done')) {
+          jQuery(steps[i]).addClass('current');
+          jQuery(steps[i - 1]).removeClass('current').addClass('done');
+          return false;
+        }
+      })    
+    });
+    back.bind("click", function() { 
+      jQuery.each( steps, function( i ) {
+        if (jQuery(steps[i]).hasClass('done') && jQuery(steps[i + 1]).hasClass('current')) {
+          jQuery(steps[i + 1]).removeClass('current');
+          jQuery(steps[i]).removeClass('done').addClass('current');
+          return false;
+        }
+      })    
+    });
+
+  })
+
+
+feather.replace()
+$('.dropdown-menu li').on('click', function() {
+  var getValue = $(this).text();
+  $('.dropdown-select').text(getValue);
+});
+
+
+</script>
+
+</body>
+
+</html>

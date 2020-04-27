@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Tables</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+   <style type="text/css">
+    .bg-gray-900 {
+  background-color: #F0F0F0 !important;
+}
+    
+
+
+
+
+
+    #profile-container {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
+
+#profile-container img {
+    width: 70px;
+    height: 70px;
+}
+
+.table tbody{
+  background-color: white;
+  border-color:  #ffffff;
+  width: 100px;
+}
+.table td{
+  height:40px;
+}
+
+
+
+
+@media only screen and (min-width: 1600px){
+  
+  .table{
+    width:80%;
+  }
+  .table td{
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  
+  .table{
+    width:75%;
+    margin-right: 100px;
+  }
+  .table td{
+    height: 45px;
+  }
+}
+@media only screen and (min-width: 2000px){
+ 
+  .table{
+    width: 100%;
+    max-width: 1800px;
+    margin-left:250px;
+    margin-right:150px;
+
+  }
+  .table td{
+    height: 70px;
+    font-size: 15px;
+  }
+  .table th{
+    font-size: 16px;
+  }
+  
+}
+@media only screen and (min-width: 1100px){
+  
+  .table{
+    width:79%;
+    margin-right: 100px;
+  }
+  .table td{
+    height: 45px;
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 1300px){
+  .mybutton{
+    margin-left: 730px ! important;
+    width: 100%;
+    height: 100%;
+
+  }
+  
+}
+@media only screen and (min-width: 1000px){
+  .mybutton{
+    margin-left: 600px;
+    width: 100%;
+    height: 100%;
+
+  }
+  
+}
+
+@media only screen and (min-width: 2000px){
+  .mybutton{
+    margin-left: 1850px ! important;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+
+
+
+  }
+  
+}
+/* Global CSS, you probably don't need that */
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+
+.container {
+  font-family: 'Lato', sans-serif;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: table-cell;
+  height: 400px;
+  vertical-align: middle;
+}
+
+.nav {
+  margin-top: 40px;
+}
+
+.pull-right {
+  float: right;
+}
+
+a, a:active {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #999;
+}
+
+/* Breadcrups CSS */
+
+.arrow-steps .step {
+  font-size: 10px;
+  text-align: center;
+  color: #666;
+  cursor: default;
+  margin: 0 1px;
+  padding: 10px 10px 10px 30px;
+  min-width: 140px;
+  max-width: 140px;
+  min-height: 38px;
+  float: left;
+  position: relative;
+  background-color: #969696;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  transition: background-color 0.2s ease;
+}
+
+.arrow-steps .step:after,
+.arrow-steps .step:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: -17px;
+  width: 0;
+  height: 0;
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-left: 17px solid #969696;
+  z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.arrow-steps .step:before {
+  right: auto;
+  left: 0;
+  border-left: 17px solid #fff; 
+  z-index: 0;
+}
+
+.arrow-steps .step:first-child:before {
+  border: none;
+}
+
+.arrow-steps .step:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.arrow-steps .step:last-child {
+  margin-right: 100px;
+}
+
+.arrow-steps .step span {
+  position: relative;
+}
+
+.arrow-steps .step span:before {
+  opacity: 0;
+  content: "✔";
+  position: absolute;
+  top: -2px;
+  left: -20px;
+}
+
+.arrow-steps .step.done span:before {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease 0.5s;
+  -moz-transition: opacity 0.3s ease 0.5s;
+  -ms-transition: opacity 0.3s ease 0.5s;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+.arrow-steps .step.current {
+  color: #fff;
+  background-color: #ffce00;
+
+}
+
+.arrow-steps .step.current:after {
+  border-left: 17px solid #ffce00;
+ 
+}
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #bec2c7 !important; 
+} 
+@media only screen and (min-width: 1000px){
+  .mybutton{
+    margin-left: 600px;
+    width: 100%;
+    height: 100%;
+
+  }
+   .table{
+    width: 100% !important;
+  }
+ 
+  .mybt1{
+    width:100% !important;
+    min-width: 114px !important;
+    max-width: 114px !important;
+    height:33px;
+    font-size: 9px !important;
+    border-color:#dadde2 !important;
+  }
+   .mybt2{
+    width:100% !important;
+    min-width: 204px !important;
+    max-width: 204px !important;
+    height:33px;
+    font-size: 9px !important;
+    border-color: #dadde2 !important;
+  }
+  .table,{
+   
+    width: 100% !important;
+
+  }
+    
+    .my-custom-scrollbar {
+      position: relative;
+      height: 800px;
+      overflow: auto;
+    }
+  
+    .bt2{
+      height:32px ! important;
+      font-size: 9px !important;
+    }
+  .bt1{
+    left: -260px !important;
+    top: -10px !important;
+  }
+  .mylabel{
+    margin-left: -10px;
+  }
+  .c3{
+    margin-left: 92px !important;
+    margin-top:-43px !important;
+  }
+  
+  .c4{
+    margin-left: 185px !important;
+    margin-top:-43px !important;
+  }
+  
+}
+ @media only screen and (min-width: 2000px){
+  
+.mybutton{
+    margin-left: 1850px ! important;
+    width: 100%;
+    height: 100%;
+
+  }
+  .mybt{
+    margin-left : 30px;
+    width: 100% !important;
+    min-width: 220px !important;
+    margin-left:200px;
+    height:38px;
+    font-size: 12px !important;
+
+  }
+  .mybt1{
+    width:100% !important;
+    min-width: 100px !important;
+    height:33px;
+    font-size: 13px !important;
+    border-color: #dadde2;
+  }
+  .table, .table thead {
+   
+    width: 100% !important;
+    margin-top: -200px ! important;
+
+    }
+    .my-custom-scrollbar {
+      position: relative;
+      height: 1200px;
+      overflow: auto;
+    }
+    .myser{
+        width: 100%;
+        margin-left: -20px;
+        min-width: 380px !important;
+        height: 40px !important;
+        margin-right: 600px;
+        margin-top: -15px !important;
+        font-size: 13px !important;
+    }
+    .bt2{
+      height:38px !important;
+      font-size: 13px !important;
+    }
+  .bt1{
+    left:-650px !important ;
+    margin-top: -1px !important;
+  }
+  .mycont{
+    margin-top: 200px !important;
+
+    width:1000px !important;
+    margin-left: -270px!important;
+  }
+  .mylabel{
+    margin-left: 300px;
+  }
+  .mysign{
+     margin-left: 660px!important;
+     width: 120px;
+     min-height: 38px !important;
+  }
+  .c3{
+    margin-left: 92px !important;
+    margin-top:-45px !important;
+  }
+
+  
+}
+.caret {
+    float: right;
+    margin-top: 9px;
+    display: block;
+  }
+
+.dropdown-menu {
+  width: 164px;
+  padding: 0;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.dropdown button:hover, .dropdown button:focus {
+  border: none;
+  outline: 0;
+}
+
+.dropdown.open button#dLabel {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+ 
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  border: solid 1px #666;
+   border-bottom: none;
+}
+
+.dropdown.open ul {
+   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+  border: solid 1px #666;
+  border-top: none;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.dropdown-menu li {
+ 
+     line-height: 1.5;
+  letter-spacing: 0.7px;
+  color: #666;
+    font-size: 14px;
+  cursor: pointer;
+  padding: 7.5px 15px;
+  border-top: solid 1px #f3f3f3;
+
+}
+.myli li{
+  font-size: 10px;
+}
+</style>
+
+ 
+</head>
+
+<body id="page-top" style="width: auto;">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar" style="color: #313131; max-width: 300px;">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: #F0F0F0; max-height: 68px; ">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink" style="color:#ffce00;"></i>
+        </div>
+         <div class="sidebar-brand-text mx-3" style=" margin-left: -5px; width: 190px;height: 16px;font-family: HiraginoSans-W9;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.62;letter-spacing: normal;text-align: left;color: #313131;">Company Tour</sup></div>
+
+      </a>
+
+    </ul>
+  
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" style="background-color: #F0F0F0; height: 65px;">
+          <label style="font-family: HiraginoSans-W9; color: #313131; font-size: 12px;font-weight: normal; margin-top: 25px !important;">Admin</label>
+
+
+        
+        
+        <div class="container-fluid"  style="background-color:#F0F0F0; position: relative; ;">
+          <label class="mylabel1" style="padding-left: 27px; padding-top: 20px; width: 200px;height: 30px;font-family: HiraginoSans-W7;font-size: 17px;font-weight: normal;font-stretch: normal; font-style: normal;line-height: 1.7;letter-spacing: 1.5px; text-align: left;color: #313131;">会社情報</label>
+          
+          
+          <div class="card-body" style="background-color: #F0F0F0; margin-top: 00px; ">
+            <div class="table-responsive my-custom-scrollbar" >
+            
+              
+               <div class="container-fluid mycont"  style="background-color: #F0F0F0;margin-top: -25px; margin-left: -25px; width:900px;">
+          
+   
+          
+          
+            <div class="mytable">
+            
+               <table class="table table-bordered" width="100%" cellspacing="0" style="text-align: center; height: auto;  margin-top: 30px; border-radius: 5px;border: solid 1px #dadde2;" >
+
+
+             
+                    <tbody style="font-size: 9px; text-align: left; ">
+                    <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3; width: 180px;">申請日</td>
+                     
+                     <td style="border-color:  #F0F0F0; "><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2019.01.01" style="font-size: 9px;outline:none ! important; box-shadow: none; min-height: 30px; border-radius: 5px;border: solid 1px#F0F0F0; border-color: white;background-color: white; color: black; max-height: 33px !important; " disabled="disabled" ></td>
+                    </tr>
+                    <tr >
+                    <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">会社名<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="株式会社Cultiate" style="font-size: 9px;outline:none ! important; box-shadow: none; min-height: 40px;border-radius: 5px;border: solid 1px #F0F0F0; color: #313131 !important; max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                    <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">会社名（カタカナ）<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="カブシキガイシャカルティエイト" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                  
+                   
+                   
+                      <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">所在地<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="〒150-0022" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px; width:100px; float: left; margin-right: 20px;">
+
+                      <div class="dropdown mybt1" style="margin-right: 20px; float: left;">
+                        <button id="dLabel" class=" btn btn-white dropdown-select mybt1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; border-radius: 5px; border-color:#dadde2;  background-color: #ffffff;  border: solid 1px #dadde2;   outline:none ! important; box-shadow: none; text-align: left; color: black; font-size: 10px !important;"> 東京都 <span class="caret"></span></button><i data-feather="chevron-down" class="c3" style="width:15px; margin-left:144px; color: black; "></i>
+                        <ul class="dropdown-menu myli" aria-labelledby="dLabel" >
+                         <li >東京都</li>
+                         <li>千葉</li>
+                         <li>東京都</li>
+                        </ul>
+                       </div>
+
+
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="渋谷区恵比寿南3丁目3−8 烏山恵比寿ビル" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px; width:290px;">
+                     </td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">電話番号<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="080" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px; width:60px;float: left; text-align: center; margin-right: 7px;font-family: HiraginoSans-W3;"><span style="float: left; margin-top: 10px; margin-right: 7px; color: black;">-</span>
+
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="9502" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px; width: 80px; float: left;text-align: center; margin-right: 7px;"><span style="float: left; margin-top: 10px; margin-right: 7px; color: black;font-family: HiraginoSans-W3;">-</span>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0996" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px; width:80px;float: left;text-align: center;">
+
+
+                     </td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">業界<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;">
+                      <div class="dropdown mybt2" style="margin-right: 20px; float: left;">
+                        <button id="dLabel" class=" btn btn-white dropdown-select mybt2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; border-radius: 5px; border-color:#dadde2;  background-color: #ffffff;  border: solid 1px #dadde2;   outline:none ! important; box-shadow: none; text-align: left; color: black; font-size: 10px !important; font-family: HiraginoSans-W3;"> 東京都 <span class="caret"></span></button><i data-feather="chevron-down" class="c4" style="width:15px;margin-top: -42px; margin-left:144px; color: black; "></i>
+                        <ul class="dropdown-menu myli" aria-labelledby="dLabel" >
+                         <li >東京都</li>
+                         <li>千葉</li>
+                         <li>東京都</li>
+                        </ul>
+                       </div></td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">企業規模<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;">
+                       
+                         <div class="dropdown mybt2" style="margin-right: 20px; float: left;">
+                        <button id="dLabel" class=" btn btn-white dropdown-select mybt2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; border-radius: 5px; border-color:#dadde2;  background-color: #ffffff;  border: solid 1px #dadde2;   outline:none ! important; box-shadow: none; text-align: left; color: black; font-size: 10px !important;"> 東京都 <span class="caret"></span></button><i data-feather="chevron-down" class="c4" style="width:15px;margin-top: -42px; margin-left:144px; color: black; "></i>
+                        <ul class="dropdown-menu myli" aria-labelledby="dLabel" >
+                         <li >東京都</li>
+                         <li>千葉</li>
+                         <li>東京都</li>
+                        </ul>
+                       </div>
+                     </td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">ホームページ<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="www.cultiate.co.jp" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">担当者名<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="武石滉平" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                     <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">メールアドレス<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="k.takeishi@cultiate.co.jp" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                    <tr >
+                     <td style="border-color:  #F0F0F0;font-family: HiraginoSans-W3;">メールアドレスを確認<span style="color: red;">*</span></td>
+                     
+                     <td style="border-color:  #F0F0F0;"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder="k.takeishi@cultiate.co.jp" style="font-size: 9px;outline:none ! important; box-shadow: none; border-radius: 5px;border: solid 1px #F0F0F0; color: black !important;max-height: 34px !important; min-height: 34px;"></td>
+                    </tr>
+                  </tbody>
+               </table>
+               <label class="mylabel" style="padding-left: 27px; padding-top: 20px; width: 800px;height: 30px;font-family: HiraginoSans-W3;font-size: 10px;font-weight: normal;font-stretch: normal; font-style: normal;line-height: 1.7;letter-spacing: 1.5px; text-align: left;color: #313131; text-align: center;">         こちらの情報はサービス運営が審査を行うためだけに使用させていただきます。<br />
+                審査結果は、申請日より最短1〜2営業日に担当者さまのメールアドレス宛てにお送りいたします。</label>
+
+             </div>
+             <a href="admin_login.html" ><button type="submit" class="btn btn-primary mysign"  style="margin-left: 350px; max-height: 30px; min-width:100px; font-size: 10px; margin-top: 30px; box-shadow: none;">送信する</button></a>
+
+         </div>
+              
+
+           </div>
+        </div>
+       
+       
+      </div>
+
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel" ><span style="font-size: 12px;">Ready to Leave?</span></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body" ><span style="font-size: 12px;">Select "Logout" below if you are ready to end your current session.</span></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal" style="font-size: 12px;">キャンセル</button>
+          <a class="btn btn-primary" href="admin_login.html" style="font-size: 12px;" >ログアウト</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+ 
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script type="text/javascript">
+
+  function mouseoverPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "text";
+}
+function mouseoutPass(obj) {
+  var obj = document.getElementById('pass1');
+  obj.type = "password";
+}
+
+function mouseoverPass1(obj) {
+  var obj = document.getElementById('pass2');
+  obj.type = "text";
+}
+function mouseoutPass1(obj) {
+  var obj = document.getElementById('pass2');
+  obj.type = "password";
+}
+function colors(clr){
+  
+  clr.style.color="#ecc94b";
+
+}
+
+function colorss(clra){
+  
+  clra.style.color="white";
+
+}
+
+ 
+
+$("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+
+/* for arrows*/
+
+jQuery( document ).ready(function() {
+    
+    var back =jQuery(".prev");
+    var next = jQuery(".next");
+    var steps = jQuery(".step");
+    
+    next.bind("click", function() { 
+      jQuery.each( steps, function( i ) {
+        if (!jQuery(steps[i]).hasClass('current') && !jQuery(steps[i]).hasClass('done')) {
+          jQuery(steps[i]).addClass('current');
+          jQuery(steps[i - 1]).removeClass('current').addClass('done');
+          return false;
+        }
+      })    
+    });
+    back.bind("click", function() { 
+      jQuery.each( steps, function( i ) {
+        if (jQuery(steps[i]).hasClass('done') && jQuery(steps[i + 1]).hasClass('current')) {
+          jQuery(steps[i + 1]).removeClass('current');
+          jQuery(steps[i]).removeClass('done').addClass('current');
+          return false;
+        }
+      })    
+    });
+
+  })
+
+
+feather.replace()
+$('.dropdown-menu li').on('click', function() {
+  var getValue = $(this).text();
+  $('.dropdown-select').text(getValue);
+});
+</script>
+
+</body>
+
+</html>
